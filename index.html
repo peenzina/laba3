@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script>
+        function result(){
+            var str = document.forms["frm"].elements["ip"].value;
+            var regexpipv4 = /\b(((\d)|(\d\d)|(1\d\d)|(2[0-4]\d)|(25[0-5]))\.){3}((\d)|(\d\d)|(1\d\d)|(2[0-4]\d)|(25[0-5]))\b/g;
+            var regexpipv6 = /\b((\d|[A-Fa-f]){4}:){7}((\d|[A-Fa-f]){4})\b/g;
+            var matchesV4 = str.match(regexpipv4);
+            var matchesV6 = str.match(regexpipv6);
+            document.write(matchesV4 != null ? "Ваш IP 4 версии: " + matchesV4 : matchesV6 != null ? "Ваш IP 6 версии: " + matchesV6 : "IP нЕпРаВиЛьНыЙ (￢_￢;)");
+        }
+    </script>
+</head>
+<body>
+    <form id="frm">
+        <input type = "text" placeholder="Введите IP-адрес" id = "ip"><br><br>
+        <input type="button" onclick ="result()" value="Отправить">
+    </form>
+</form>
+</body>
+</html>
